@@ -1,6 +1,6 @@
 /************************************************** Description *******************************************************/
 /*
-    File : sample.cpp
+    File : Sample.cpp
     Programmer : Mohammad Lotfi
     Used : Example
     Design Pattern : Nothing
@@ -32,7 +32,6 @@
 /************************************************** Names *************************************************************/
 using namespace std;
 /************************************************** Variables *********************************************************/
-std::mutex Mutex_print;
 void Task_1(void);
 void Task_2(void);
 /************************************************** Opjects ***********************************************************/
@@ -58,12 +57,8 @@ int main() {
 void Task_1(void) {
     /* Loop to count 10 times */
     for(int Count=0; Count<10; Count++) {  
-        /* Lock to the output print should not be mixed*/
-        Mutex_print.lock();  
         /* Print words */
         cout << "Task_1 Count : " << Count << std::endl;
-        /* Unlock */
-        Mutex_print.unlock();
         /* Wait 100 ms */
         usleep(100000);
     }
@@ -73,12 +68,8 @@ void Task_1(void) {
 void Task_2(void) {
     /* Loop to count 10 times */
     for(int Count=0; Count<10; Count++) {   
-        /* Lock to the output print should not be mixed*/
-        Mutex_print.lock();  
         /* Print words */
         cout << "Task_2 Count : " << Count << std::endl;
-        /* Unlock */
-        Mutex_print.unlock();
         /* Wait 100 ms */
         usleep(100000);
     }
